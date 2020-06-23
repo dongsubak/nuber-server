@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "Server for the Nuber Clone Course. GraphQL, Typescript, NodeJS",
     "main": "index.js",
-    "repository": "https://github.com/nomadcoders/nuber-server",
+    "repository": "https://github.com/dongsubak/nuber-server",
     "author": "",
     "license": "MIT",
     "devDependencies": {
