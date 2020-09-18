@@ -1,7 +1,7 @@
 type Query {
   sayBye: String!
-  # sayHello(name: String!): SayHelloResponse!
-  sayHello: Greeting!
+  sayHello(name: String!): SayHelloResponse!
+  sayHelloGreeting: Greeting!
 }
 
 type Greeting {

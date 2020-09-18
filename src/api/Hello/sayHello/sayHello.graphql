@@ -9,7 +9,7 @@ type SayHelloResponse {
 }
 
 type Query {
-  #sayHello(name: String!): SayHelloResponse!
-  sayHello: Greeting!
+  sayHello(name: String!): SayHelloResponse!
+  sayHelloGreeting: Greeting!
   #sayHello: String!
 }
