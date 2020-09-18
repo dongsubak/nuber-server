@@ -1,6 +1,6 @@
 # Test files
-src/something.graphql
-src/api/Hello
+# src/something.graphql
+# src/api/Hello/*
 
 # Logs
 logs
