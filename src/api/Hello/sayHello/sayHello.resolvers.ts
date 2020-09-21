@@ -13,7 +13,7 @@ const resolvers = {
         
         
         sayHello: (_, args: SayHelloQueryArgs ): SayHelloResponse => {
-            console.log(args.name)
+            // console.log(args.name);
             return {
                 error: false,
                 text: `Hello ${args.name}`
