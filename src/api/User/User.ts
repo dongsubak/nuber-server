@@ -1,12 +1,17 @@
+import bcrypt from "bcrypt"
 import { IsEmail } from "class-validator"; //https://github.com/typestack/class-validator
 import { 
     BaseEntity, 
+    BeforeInsert, 
+    BeforeUpdate,
     Column, 
     CreateDateColumn, 
     Entity, 
     PrimaryGeneratedColumn, 
     UpdateDateColumn 
 } from "typeorm";
+
+const BCRYPT_ROUNDS = 10;
 
 @Entity()
 class User extends BaseEntity {
@@ -64,6 +69,19 @@ class User extends BaseEntity {
 
     @CreateDateColumn() createdAt: string;
     @UpdateDateColumn() updatedAt: string;
+
+    @BeforeInsert()
+    @BeforeUpdate()
+    async savePassword() : Promise<void> {
+        if (this.password) {
+            const hashedPassword = await this.hashPassword(this.password);
+            this.password = hashedPassword;
+        }
+    }
+
+    private hashPassword(password: string): Promise<string> {
+        return bcrypt.hash(password, BCRYPT_ROUNDS) 
+    }
 }
 
 export default User;
