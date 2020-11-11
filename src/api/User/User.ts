@@ -63,12 +63,14 @@ class User extends BaseEntity {
     @Column({ type: "double precision", default: 0 })
     lastOrientation: number;
 
+    @CreateDateColumn() createdAt: string;
+    @UpdateDateColumn() updatedAt: string;
+
     get fullName(): string {
         return `${this.firstName} ${this.lastName}`
     }
 
-    @CreateDateColumn() createdAt: string;
-    @UpdateDateColumn() updatedAt: string;
+    
 
     @BeforeInsert()
     @BeforeUpdate()
@@ -80,7 +82,7 @@ class User extends BaseEntity {
     }
 
     private hashPassword(password: string): Promise<string> {
-        return bcrypt.hash(password, BCRYPT_ROUNDS) 
+        return bcrypt.hash(password, BCRYPT_ROUNDS);
     }
 }
 
