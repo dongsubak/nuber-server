@@ -2,6 +2,7 @@ type Query {
   sayBye: String!
   sayHello(name: String!): SayHelloResponse!
   sayHelloGreeting: Greeting!
+  user: User
 }
 
 type Greeting {
@@ -12,4 +13,38 @@ type Greeting {
 type SayHelloResponse {
   text: String!
   error: Boolean!
+}
+
+# No resolver, only graphql type
+type User {
+  id: Int!
+  email: String
+  verifiedEmail: Boolean!
+  firstName: String!
+  lastname: String!
+  # facebookID: String
+  age: Int
+  password: String
+  phoneNumber: String
+  verifiedPhoneNumber: Boolean
+  profilePhoto: String
+  fullName: String
+  isDriving: Boolean!
+  isRiding: Boolean!
+  isTaken: Boolean!
+  lastLng: Float
+  lastLat: Float
+  lastOrientation: Float
+  createdAt: String!
+  updatedAt: String
+}
+
+type Verification {
+  id: Int!
+  target: String!
+  payload: String!
+  key: String!
+  used: Boolean!
+  createdAt: String!
+  updatedAt: String!
 }
