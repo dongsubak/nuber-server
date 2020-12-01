@@ -13,7 +13,7 @@ const PHONE = "PHONE";
 const EMAIL = "EMAIL";
 
 @Entity()
-class Verification extends BaseEntity{
+class Verification extends BaseEntity {
   @PrimaryGeneratedColumn() id: number
 
   @Column({type: "text", enum: [PHONE, EMAIL] })
@@ -41,4 +41,4 @@ class Verification extends BaseEntity{
     }
   };
 }
-export default Verification
+export default Verification;
