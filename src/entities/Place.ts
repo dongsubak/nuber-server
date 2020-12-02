@@ -30,4 +30,4 @@ class Place extends BaseEntity {
   @UpdateDateColumn() updatedAt: string;
 
 }
-export default Place
+export default Place;
