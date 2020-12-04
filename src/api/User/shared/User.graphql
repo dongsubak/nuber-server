@@ -18,6 +18,8 @@ type User {
     lastLng: Float
     lastLat: Float
     lastOrientation: Float
+    chat: Chat # Chat Type이 되는 이유는 schema.ts에서 하나로 합쳐주기 때문이다.
+    messages: [Message] # Message Type이 되는 이유는 schema.ts에서 하나로 합쳐주기 때문이다.
     createdAt: String!
     updatedAt: String
 }
