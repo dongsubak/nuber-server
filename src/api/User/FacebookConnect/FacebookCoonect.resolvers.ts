@@ -18,7 +18,7 @@ const resolvers: Resolvers = {
           return {
             ok: true,
             error: null,
-            token: "Construction"
+            token: "Construction, existing"
           };
         } // else{try{}catch(error){}} 하지 않고, 부모 try-catch 바깥으로 뺀다.
       } catch (error) {
@@ -38,7 +38,7 @@ const resolvers: Resolvers = {
           return {
             ok: true,
             error: null,
-            token: "Construction"
+            token: "Construction, new"
           }
         // }
       } catch(error){
