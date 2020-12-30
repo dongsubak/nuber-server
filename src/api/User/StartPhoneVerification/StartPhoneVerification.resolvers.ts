@@ -19,6 +19,11 @@ const resolvers: Resolvers = {
         if (existingVerification) {
           existingVerification.remove();
         }
+        const newVerification = await Verification.create({
+          payload: phoneNumber,
+          target: "PHONE"
+        }).save();
+        //newVerification.key
       } catch (error){
         return {
           ok: false,
