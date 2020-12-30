@@ -14,7 +14,7 @@ const resolvers: Resolvers = {
       const { phoneNumber } = args;
       try {
         const existingVerification = await Verification.findOne({ 
-          payload: phoneNumber 
+          payload: phoneNumber  
         });
         if (existingVerification) {
           existingVerification.remove();
