@@ -1,3 +1,4 @@
+import createJWT from "../../../utils/createJWT";
 import User from "../../../entities/User";
 import { 
   FacebookConnectMutationArgs, 
@@ -15,10 +16,11 @@ const resolvers: Resolvers = {
       try {
         const existingUser = await User.findOne({ fbId });
         if (existingUser) {
+          const token = createJWT(existingUser.id)
           return {
             ok: true,
             error: null,
-            token: "Construction, existing"
+            token //token: token
           };
         } // else{try{}catch(error){}} 하지 않고, 부모 try-catch 바깥으로 뺀다.
       } catch (error) {
@@ -29,16 +31,16 @@ const resolvers: Resolvers = {
         };
       }
       try {
-        // const newUser = 
-        await User.create({
+        const newUser = await User.create({
           ...args, 
           profilePhoto: `http://graph.facebook.com/${fbId}/picture?type=square`
         }).save();
+          const token = createJWT(newUser.id)
         // if (newUser) {
           return {
             ok: true,
             error: null,
-            token: "Construction, new"
+            token //token: token
           }
         // }
       } catch(error){

@@ -1,3 +1,4 @@
+import createJWT from "../../../utils/createJWT";
 import User from "../../../entities/User";
 import Verification from "../../../entities/Verification";
 import { CompletePhoneVerificationMutationArgs, CompletePhoneVerificationResponse } from "../../../types/graph";
@@ -38,10 +39,11 @@ const resolvers: Resolvers = {
         if (user) {
           user.verifiedPhoneNumber = true;
           user.save();
+          const token = createJWT(user.id);
           return {
             ok: true,
             error: null,
-            token: "Construction"
+            token //token: token
           };
         } else {
           return {
