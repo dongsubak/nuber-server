@@ -14,10 +14,15 @@ Nuber Server - Typescript, GraphQL, PostgreSQL, NodeJS
 
 ---
 
-### Private Resolvers:
+### Authentication:
 
 - [ ] Generate JWT
 - [ ] Verify JWT
+
+---
+
+### Private Resolvers:
+
 - [ ] Verify Email
 - [ ] Get My Profile
 - [ ] Update my Profile
