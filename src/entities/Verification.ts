@@ -25,6 +25,9 @@ class Verification extends BaseEntity {
   @Column({ type: "text" })
   key: string;
 
+  @Column({ type: "boolean", default: false })
+  verified: boolean;
+
   //@Column({ type: "boolean", default: false })
   //used: boolean; //redundant
 
