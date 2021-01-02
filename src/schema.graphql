@@ -119,7 +119,7 @@ type Verification {
   target: String!
   payload: String!
   key: String!
-  used: Boolean!
+  # # used: Boolean! #redundant
   user: User
   createdAt: String!
   updatedAt: String!
