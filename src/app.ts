@@ -1,4 +1,6 @@
+
 import cors from "cors";
+import { NextFunction, Response, Request } from "express";
 import { GraphQLServer } from "graphql-yoga";
 import helmet from "helmet";
 import logger from "morgan";
@@ -9,7 +11,15 @@ class App {
   public app: GraphQLServer;
   constructor() {
     this.app = new GraphQLServer({
-      schema
+      schema,
+      context: req => {
+        return {
+          req: req.request //express
+        }
+      } 
+      //이렇게 context에 넣으면, 어떤 resolvers에서도 불러올 수 있다. Query, Mutation 등에서.
+      //~.resolvers.ts
+      //const resolvers: Resolvers = { Query: { user: (parent, args, context) => { console.log(context); return ""; }}}
     });
     this.middlewares();
   }
@@ -20,11 +30,19 @@ class App {
     this.app.express.use(this.jwtMiddleware);
   };
   
-  private jwtMiddleware = async(req, res, next): Promise<void> => {
+  private jwtMiddleware = async(
+    req: Request, 
+    res: Response, 
+    next: NextFunction
+  ): Promise<void> => {
     const token = req.get("X-JWT");
     if (token) {
       const user = await decodeJWT(token);
       console.log(user);
+      //put user to req
+      if (user) {
+        req.user = user;
+      }
     }
     next();
   };
