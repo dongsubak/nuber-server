@@ -19,7 +19,7 @@ type Query {
   sayBye: String!
   sayHello(name: String!): SayHelloResponse!
   sayHelloGreeting: Greeting!
-  user: User
+  GetMyProfile: GetMyProfileResponse!
 }
 
 type Greeting {
@@ -91,6 +91,12 @@ type FacebookConnectResponse {
   ok: Boolean!
   error: String
   token: String
+}
+
+type GetMyProfileResponse {
+  ok: Boolean!
+  error: String
+  user: User
 }
 
 # No resolver, only graphql type

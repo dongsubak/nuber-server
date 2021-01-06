@@ -14,7 +14,8 @@ class App {
       schema,
       context: req => {
         return {
-          req: req.request //express
+          req: req.request, //express
+          user: ""
         }
       } 
       //이렇게 context에 넣으면, 어떤 resolvers에서도 불러올 수 있다. Query, Mutation 등에서.
