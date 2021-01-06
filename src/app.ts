@@ -1,6 +1,6 @@
 
 import cors from "cors";
-import { NextFunction, Response, Request } from "express";
+import { NextFunction, Response } from "express";
 import { GraphQLServer } from "graphql-yoga";
 import helmet from "helmet";
 import logger from "morgan";
@@ -14,8 +14,8 @@ class App {
       schema,
       context: req => {
         return {
-          req: req.request, //express
-          user: ""
+          req: req.request //express
+          // user: ""
         }
       } 
       //이렇게 context에 넣으면, 어떤 resolvers에서도 불러올 수 있다. Query, Mutation 등에서.
@@ -31,8 +31,8 @@ class App {
     this.app.express.use(this.jwtMiddleware);
   };
   
-  private jwtMiddleware = async(
-    req: Request, 
+  private jwtMiddleware = async (
+    req, 
     res: Response, 
     next: NextFunction
   ): Promise<void> => {
@@ -43,6 +43,8 @@ class App {
       //put user to req
       if (user) {
         req.user = user;
+      } else {
+        req.user = undefined;
       }
     }
     next();
