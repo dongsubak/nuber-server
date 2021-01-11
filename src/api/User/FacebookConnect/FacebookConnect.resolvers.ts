@@ -7,12 +7,12 @@ import {
 import { Resolvers } from "../../../types/resolvers";
 
 const resolvers: Resolvers = {
-  Query: {
-    user: (parent, args, context) => {
-      console.log(context.req.user);
-      return "";
-    }
-  },
+  //Query: {
+  //  user: (parent, args, context) => {
+  //    console.log(context.req.user);
+  //    return "";
+  //  }
+  //},
   Mutation: {
     FacebookConnect: async(
       _, 

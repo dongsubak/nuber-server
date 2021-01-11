@@ -3,6 +3,9 @@ type FacebookConnectResponse {
   error: String
   token: String
 }
+#type Query {
+#  user: String
+#}
 type Mutation { 
   FacebookConnect(
     firstName: String!
