@@ -7,6 +7,12 @@ import {
 import { Resolvers } from "../../../types/resolvers";
 
 const resolvers: Resolvers = {
+  Query: {
+    user: (parent, args, context) => {
+      console.log(context.req.user);
+      return "";
+    }
+  },
   Mutation: {
     FacebookConnect: async(
       _, 
@@ -15,6 +21,7 @@ const resolvers: Resolvers = {
       const { fbId } = args;
       try {
         const existingUser = await User.findOne({ fbId });
+        //console.log("existingUser: ", existingUser);
         if (existingUser) {
           const token = createJWT(existingUser.id)
           return {
