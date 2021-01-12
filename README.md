@@ -23,8 +23,8 @@ Nuber Server - Typescript, GraphQL, PostgreSQL, NodeJS
 
 ### Private Resolvers:
 
+- [x] Get My Profile
 - [ ] Verify Email
-- [ ] Get My Profile
 - [ ] Update my Profile
 - [ ] Toggle Driving Mode
 - [ ] Report location / orientation
