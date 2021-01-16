@@ -1,5 +1,6 @@
 import createJWT from "../../../utils/createJWT";
 import User from "../../../entities/User";
+//import { User } from "../../../types/graph";
 import { 
   FacebookConnectMutationArgs, 
   FacebookConnectResponse
