@@ -1,7 +1,7 @@
 import createJWT from "../../../utils/createJWT";
 import User from "../../../entities/User";
 import Verification from "../../../entities/Verification";
-import { EmailSignInMutationArgs, EmailSignInResponse } from "../../../types/graph";
+import { EmailSignUpMutationArgs, EmailSignUpResponse } from "../../../types/graph";
 import { Resolvers } from "../../../types/resolvers";
 import { sendVerificationEmail } from "src/utils/sendEmail";
 
@@ -10,8 +10,8 @@ const resolvers: Resolvers = {
   Mutation: {
     EmailSignUp: async (
       _,
-      args: EmailSignInMutationArgs
-    ): Promise<EmailSignInResponse> => {
+      args: EmailSignUpMutationArgs
+    ): Promise<EmailSignUpResponse> => {
       const { email } = args;
       try {
         const existingUser = await User.findOne({ email });
