@@ -16,15 +16,15 @@ const resolvers: Resolvers = {
           payload: phoneNumber,
           key
         });
-        if (!verification) {
+        if (verification) {
+          verification.verified = true;
+          verification.save();
+        } else {
           return {
             ok: false,
             error: "Verification key not valid",
             token: null
           }
-        } else {
-          verification.verified = true;
-          verification.save();
         }
       } catch (error) {
         return {
