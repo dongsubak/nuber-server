@@ -26,7 +26,7 @@ Nuber Server - Typescript, GraphQL, PostgreSQL, NodeJS
 - [x] Get My Profile
 - [x] Request Email Verification
 - [x] Complete Email Verification
-- [ ] Update my Profile
+- [x] Update my Profile
 - [ ] Toggle Driving Mode
 - [ ] Report location / orientation
 - [ ] Add Place
