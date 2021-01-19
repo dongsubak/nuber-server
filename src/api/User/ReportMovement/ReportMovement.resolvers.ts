@@ -1,25 +1,19 @@
 
+import cleanNullArg from "src/utils/cleanNullArg";
 import User from "../../../entities/User";
-import { 
-  UpdateMyProfileMutationArgs, 
-  UpdateMyProfileResponse 
+import {
+  ReportMovementMutationArgs, ReportMovementResponse
 } from "../../../types/graph";
 import { Resolvers } from "../../../types/resolvers"
 import privateResolver from "../../../utils/privateResolver"
-import cleanNullArg from "../../../utils/cleanNullArg";
 
 const resolvers: Resolvers = {
   Mutation: {
-    UpdateMyProfile: privateResolver(async (_, args: UpdateMyProfileMutationArgs, { req }): Promise<UpdateMyProfileResponse> => {
+    ReportMovementMode: privateResolver(async (_, args: ReportMovementMutationArgs, { req }): Promise<ReportMovementResponse> => {
       const user: User = req.user;
       const notNullArgs = cleanNullArg(args);
-
       try {
-        if (args.password !== null) {
-          user.password = args.password;
-          user.save(); //trigger @BeforUpdate() 
-        }
-        await User.update({ id: user.id }, { ...notNullArgs }); //User Instance가 없다. @BeforeUpdate() 호출되지 않는다. 
+        await User.update({ id: user.id }, { ...notNullArgs})
         return {
           ok: true,
           error: null
@@ -30,7 +24,7 @@ const resolvers: Resolvers = {
           error: error.message
         }
       }
-    }) 
+    })
   }
 }
 

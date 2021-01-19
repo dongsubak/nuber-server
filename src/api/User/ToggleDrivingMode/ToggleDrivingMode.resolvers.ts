@@ -8,7 +8,7 @@ import privateResolver from "../../../utils/privateResolver"
 
 const resolvers: Resolvers = {
   Mutation: {
-    ToggleDrivingMode: privateResolver(async(_, __, { req }): Promise<ToggleDrivingModeResponse> => {
+    ToggleDrivingMode: privateResolver( async(_, __, { req }): Promise<ToggleDrivingModeResponse> => {
       const user: User = req.user;
       user.isDriving = !user.isDriving;
       user.save();
