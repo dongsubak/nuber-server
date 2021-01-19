@@ -5,8 +5,8 @@ import {
   UpdateMyProfileResponse 
 } from "../../../types/graph";
 import { Resolvers } from "../../../types/resolvers"
-import cleanNullArg from "../../../utils/cleanNullArg";
 import privateResolver from "../../../utils/privateResolver"
+import cleanNullArg from "../../../utils/cleanNullArg";
 
 const resolvers: Resolvers = {
   Mutation: {
