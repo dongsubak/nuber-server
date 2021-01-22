@@ -30,8 +30,8 @@ Nuber Server - Typescript, GraphQL, PostgreSQL, NodeJS
 - [x] Toggle Driving Mode
 - [x] Report location / orientation
 - [x] Add Place
-- [ ] Edit Place
-- [ ] Delete Place
+- [x] Edit Place
+- [x] Delete Place
 - [ ] Get My Places
 - [ ] See Nearby Drivers
 - [ ] Subscribe to Nearby Drivers
