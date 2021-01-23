@@ -19,6 +19,7 @@ type Query {
   sayBye: String!
   sayHello(name: String!): SayHelloResponse!
   sayHelloGreeting: Greeting!
+  GetMyPlaces: GetMyPlacesResponse!
   GetMyProfile: GetMyProfileResponse!
 }
 
@@ -61,6 +62,12 @@ type DeletePlaceResponse {
 type EditPlaceResponse {
   ok: Boolean!
   error: String
+}
+
+type GetMyPlacesResponse {
+  ok: Boolean!
+  error: String
+  places: [Place]
 }
 
 type Place {
@@ -145,7 +152,7 @@ type User {
   email: String
   verifiedEmail: Boolean!
   firstName: String!
-  lastname: String!
+  lastName: String!
   # facebookID: String
   age: Int
   password: String

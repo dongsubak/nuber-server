@@ -89,6 +89,7 @@ class User extends BaseEntity {
 
     @OneToMany(type => Place, place => place.user)
     places: Place[];
+    
     @CreateDateColumn() createdAt: string;
     @UpdateDateColumn() updatedAt: string;
 
