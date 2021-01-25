@@ -11,21 +11,21 @@ const resolvers: Resolvers = {
         if (user) {
           return {
             ok: true,
-            places: user.places,
-            error: null
+            error: null,
+            places: user.places
           }
         } else {
           return {
             ok: false,
-            places: null,
-            error: "User not found"
+            error: "User not found",
+            places: null
           }
         }
       } catch (error) {
         return {
           ok: false,
-          places: null,
-          error: error.message
+          error: error.message,
+          places: null
         };
       }
     })
