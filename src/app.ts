@@ -1,7 +1,7 @@
 
 import cors from "cors";
 import { NextFunction, Response } from "express";
-import { GraphQLServer } from "graphql-yoga";
+import { GraphQLServer, PubSub } from "graphql-yoga";
 import helmet from "helmet";
 import logger from "morgan";
 import schema from"./schema"; 
@@ -9,13 +9,17 @@ import decodeJWT from "./utils/decodeJWT";
 
 class App {
   public app: GraphQLServer;
+  public pubSub: any; //only for demo
   constructor() {
+    this.pubSub = new PubSub(); //only for demo
+    this.pubSub.ee.setMaxListeners(99); //only for demo
     this.app = new GraphQLServer({
       schema,
       context: req => {
         return {
-          req: req.request //express
+          req: req.request, //express
           // user: ""
+          pubSub: this.pubSub
         }
       } 
       //이렇게 context에 넣으면, 어떤 resolvers에서도 불러올 수 있다. Query, Mutation 등에서.
