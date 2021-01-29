@@ -16,11 +16,13 @@ class App {
     this.app = new GraphQLServer({
       schema,
       context: req => {
-        //console.log(req);
+        console.log(req.connection.context.currentUser); //req.connection 에 websocket 있다.
+        const { connection: { context = null } = {} } = req;
         return {
-          req: req.request, //express
+          req: req.request, //express //req.request 에 html request 있다.
           // user: ""
-          pubSub: this.pubSub
+          pubSub: this.pubSub,
+          context
         }
       } 
       //이렇게 context에 넣으면, 어떤 resolvers에서도 불러올 수 있다. Query, Mutation 등에서.
