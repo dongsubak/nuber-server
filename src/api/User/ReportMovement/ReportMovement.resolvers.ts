@@ -1,5 +1,5 @@
 
-import cleanNullArg from "src/utils/cleanNullArg";
+import cleanNullArg from "../../../utils/cleanNullArg";
 import User from "../../../entities/User";
 import {
   ReportMovementMutationArgs, ReportMovementResponse
