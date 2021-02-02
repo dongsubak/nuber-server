@@ -35,9 +35,10 @@ Nuber Server - Typescript, GraphQL, PostgreSQL, NodeJS
 - [x] Get My Places
 - [x] See Nearby Drivers
 - [x] Subscribe to Nearby Drivers
-- [ ] Request a Ride
-- [ ] Get Nearby Ride Requests
-- [ ] Subscribe to Nearby Ride Requests
+- [x] Request a Ride
+- [x] Get Nearby Ride Requests
+- [x] Subscribe to Nearby Ride Requests
+- [ ] Update Ride Status
 - [ ] Subscribe to Ride Status
 - [ ] Get Chat Room Messages
 - [ ] Subscribe to Chat Room Messages
