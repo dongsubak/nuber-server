@@ -1,7 +1,7 @@
 import { Between, getRepository } from "typeorm";
 import Ride from "../../../entities/Ride"
 import User from "../../../entities/User";
-import { GetNearbyRidesResponse } from "../../../types/graph";
+import { GetNearbyRideResponse } from "../../../types/graph";
 import { Resolvers } from "../../../types/resolvers"
 import privateResolver from "../../../utils/privateResolver"
 
