@@ -102,6 +102,7 @@ type GetRideResponse {
 
 type Subscription {
   DriversSubscription: User
+  RideStatusSubscription: Ride
   DriversSubscription: User
 }
 
