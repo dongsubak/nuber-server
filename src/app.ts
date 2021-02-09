@@ -16,7 +16,7 @@ class App {
     this.app = new GraphQLServer({
       schema,
       context: req => {
-        console.log(req.connection.context.currentUser); //req.connection 에 websocket 있다.
+        // console.log(req.connection.context.currentUser); //req.connection 에 websocket 있다.
         const { connection: { context = null } = {} } = req;
         return {
           req: req.request, //express //req.request 에 html request 있다.

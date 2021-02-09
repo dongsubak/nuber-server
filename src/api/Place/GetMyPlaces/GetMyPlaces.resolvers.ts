@@ -4,7 +4,7 @@ import { Resolvers } from "../../../types/resolvers";
 import privateResolver from "../../../utils/privateResolver";
 
 const resolvers: Resolvers = {
-  Mutation: {
+  Query: {
     GetMyPlaces: privateResolver( async (_, __, { req }): Promise<GetMyPlacesResponse> => {
       try {
         const user = await User.findOne({ id: req.user.id }, { relations: ["places"] });

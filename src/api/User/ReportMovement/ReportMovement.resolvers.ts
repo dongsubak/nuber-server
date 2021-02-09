@@ -9,7 +9,7 @@ import privateResolver from "../../../utils/privateResolver"
 
 const resolvers: Resolvers = {
   Mutation: {
-    ReportMovementMode: privateResolver(
+    ReportMovement: privateResolver(
       async (
         _, 
         args: ReportMovementMutationArgs, 
