@@ -6,8 +6,7 @@ import {
     BeforeUpdate,
     Column, 
     CreateDateColumn, 
-    Entity, 
-    ManyToOne, 
+    Entity,  
     OneToMany, 
     PrimaryGeneratedColumn, 
     UpdateDateColumn 
@@ -72,8 +71,14 @@ class User extends BaseEntity {
     @Column({ type: "text", nullable: true })
     fbId: string;
 
-    @ManyToOne(type => Chat, chat => chat.participants)
-    chat: Chat; //chat in User.graphql file
+    @OneToMany(type => Chat, chat => chat.passenger)
+    chatsAsPassenger: Chat;
+
+    @OneToMany(type => Chat, chat => chat.driver)
+    chatsAsDriver: Chat;
+    
+    //@ManyToOne(type => Chat, chat => chat.participants)
+    //chat: Chat; //chat in User.graphql file
 
     @OneToMany(type => Message, message => message.user)
     messages: Message[]; //messages in User.graphql file
