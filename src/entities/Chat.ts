@@ -16,19 +16,19 @@ import User from "./User";
 class Chat extends BaseEntity {
   @PrimaryGeneratedColumn() id: number;
 
-  @OneToMany(type => Message, message => message.chat)
+  @OneToMany(type => Message, message => message.chat, { nullable: true })
   messages: Message[];
 
   //@OneToMany(type => User, user => user.chat)
   //participants: User[];
 
-  @Column({ type: "int", nullable: true })
+  @Column({ nullable: true })
   passengerId: number
 
   @ManyToOne(type => User, user => user.chatsAsPassenger)
   passenger: User; //passenger is column
 
-  @Column({ type: "int", nullable: true })
+  @Column({ nullable: true })
   driverId: number
 
   @ManyToOne(type => User, user => user.chatsAsDriver)

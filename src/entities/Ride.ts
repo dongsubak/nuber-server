@@ -48,13 +48,13 @@ class Ride extends BaseEntity {
   @Column({ type: "text" })
   duration: string;
 
-  @Column({ type: "int", nullable: true })
+  @Column({ nullable: true })
   passengerId: number
 
   @ManyToOne(type => User, user => user.ridesAsPassenger)
   passenger: User; //passenger is column
 
-  @Column({ type: "int", nullable: true })
+  @Column({ nullable: true })
   driverId: number
 
   @ManyToOne(type => User, user => user.ridesAsDriver, { nullable: true })

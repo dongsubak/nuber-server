@@ -1,7 +1,28 @@
+type GetChatResponse {
+  ok: Boolean!
+  error: String
+  chat: Chat
+}
+
+type Query {
+  GetChat(chatId: Int!): GetChatResponse!
+  sayBye: String!
+  sayHello(name: String!): SayHelloResponse!
+  sayHelloGreeting: Greeting!
+  GetMyPlaces: GetMyPlacesResponse!
+  GetNearbyRide: GetNearbyRideResponse!
+  GetRide(rideId: Int!): GetRideResponse!
+  GetMyProfile: GetMyProfileResponse!
+  GetNearbyDrivers: GetNearbyDriversResponse!
+}
+
 type Chat {
   id: Int!
-  messages: [Message]!
-  participants: [User]!
+  messages: [Message]
+  passenger: User!
+  passengerId: Int
+  driver: User!
+  driverId: Int
   createdAt: String!
   updatedAt: String
 }
@@ -13,17 +34,6 @@ type Message {
   user: User!
   createdAt: String!
   updatedAt: String
-}
-
-type Query {
-  sayBye: String!
-  sayHello(name: String!): SayHelloResponse!
-  sayHelloGreeting: Greeting!
-  GetMyPlaces: GetMyPlacesResponse!
-  GetNearbyRide: GetNearbyRideResponse!
-  GetRide(rideId: Int!): GetRideResponse!
-  GetMyProfile: GetMyProfileResponse!
-  GetNearbyDrivers: GetNearbyDriversResponse!
 }
 
 type Greeting {
@@ -101,7 +111,7 @@ type GetRideResponse {
 }
 
 type Subscription {
-  DriversSubscription: User
+  NearbyRideSubscription: User
   RideStatusSubscription: Ride
   DriversSubscription: User
 }
@@ -124,7 +134,7 @@ type Ride {
   price: Float!
   distance: String!
   duration: String!
-  driverId: Int
+  driverId: Int!
   driver: User!
   passengerId: Int!
   passenger: User!
@@ -203,7 +213,6 @@ type User {
   verifiedEmail: Boolean!
   firstName: String!
   lastName: String!
-  # facebookID: String
   age: Int
   password: String
   phoneNumber: String
@@ -217,11 +226,13 @@ type User {
   lastLat: Float
   lastOrientation: Float
   fbId: String
-  chat: Chat
+  # chat: Chat # Chat Type이 되는 이유는 schema.ts에서 하나로 합쳐주기 때문이다.
   messages: [Message]
   # # verifications: [Verification] # Verification Type이 되는 이유는 schema.ts에서 하나로 합쳐주기 때문이다.
-  ridesAsPassenger: [Ride]
   ridesAsDriver: [Ride]
+  ridesAsPassenger: [Ride]
+  chatsAsDriver: [Chat]
+  chatsAsPassenger: [Chat]
   places: [Place]
   createdAt: String!
   updatedAt: String

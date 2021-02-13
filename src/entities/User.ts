@@ -36,7 +36,7 @@ class User extends BaseEntity {
     lastName: string;
 
     @Column({ type: "int", nullable: true })
-    age: number | null; //nullable: true
+    age: number; //nullable: true
 
     @Column({ type: "text", nullable: true })
     password: string;
@@ -47,7 +47,7 @@ class User extends BaseEntity {
     @Column({ type: "boolean", default: false })
     verifiedPhoneNumber: boolean;
 
-    @Column({ type: "text" })
+    @Column({ type: "text", nullable: true })
     profilePhoto: string
 
     @Column({ type: "boolean", default: false })
@@ -72,10 +72,10 @@ class User extends BaseEntity {
     fbId: string;
 
     @OneToMany(type => Chat, chat => chat.passenger)
-    chatsAsPassenger: Chat;
+    chatsAsPassenger: Chat[];
 
     @OneToMany(type => Chat, chat => chat.driver)
-    chatsAsDriver: Chat;
+    chatsAsDriver: Chat[];
     
     //@ManyToOne(type => Chat, chat => chat.participants)
     //chat: Chat; //chat in User.graphql file
