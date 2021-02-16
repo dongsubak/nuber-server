@@ -8,6 +8,11 @@ const resolver: Resolvers = {
   Query: {
     GetChat: privateResolver(async(_, args: GetChatQueryArgs, { req }): Promise<GetChatResponse> => {
       const user: User = req.user;
+      //await Ride.delete({});
+      //user.isTaken = false;
+      //user.isRiding = false;
+      //user.save();
+      //await User.update({ id: 1 }, { isRiding: false, isTaken: false });
       try {
         const chat = await Chat.findOne({
           id: args.chatId
@@ -22,7 +27,7 @@ const resolver: Resolvers = {
           } else {
             return {
               ok: false,
-              error: "",
+              error: "Not Authorized",
               chat: null
             };
           }

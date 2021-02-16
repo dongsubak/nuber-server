@@ -8,6 +8,10 @@ const resolvers: Resolvers = {
   Query: {
     GetRide: privateResolvers(async(_, args: GetRideQueryArgs, { req }): Promise<GetNearbyRideResponse> => {
       const user: User = req.user;
+      //user.isTaken = false;
+      //user.isRiding = false;
+      //user.save();
+      //await Ride.delete({});
       try {
         const ride = await Ride.findOne({
           id: args.rideId

@@ -6,10 +6,12 @@ import {
   OneToMany,
   ManyToOne,
   PrimaryGeneratedColumn, 
-  UpdateDateColumn 
+  UpdateDateColumn, 
+  OneToOne
 } from "typeorm";
 
 import Message from "./Message";
+import Ride from "./Ride";
 import User from "./User";
 
 @Entity()
@@ -29,11 +31,16 @@ class Chat extends BaseEntity {
   passenger: User; //passenger is column
 
   @Column({ nullable: true })
-  driverId: number
+  driverId: number;
 
   @ManyToOne(type => User, user => user.chatsAsDriver)
   driver: User; //driver is column
 
+  @Column({ nullable: true })
+  rideId: number;
+
+  @OneToOne(type => Ride, ride => ride.chat)
+  ride: Ride;
 
   @CreateDateColumn() createdAt: string;
   @UpdateDateColumn() updatedAt: string;
