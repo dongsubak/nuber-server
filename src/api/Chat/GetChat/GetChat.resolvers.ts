@@ -16,6 +16,9 @@ const resolver: Resolvers = {
       try {
         const chat = await Chat.findOne({
           id: args.chatId
+        },
+        {
+          relations: ["messages"] //["passenger", "driver"] relation 써야 다른 정보도 가지고 온다.
         });
         if (chat) {
           if (chat.passengerId === user.id || chat.driverId === user.id) {
