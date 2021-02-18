@@ -19,7 +19,7 @@ const resolvers: Resolvers = {
               text: args.text,
               chat,
               user
-            });
+            }).save();
             return {
               ok: true,
               error: null,
