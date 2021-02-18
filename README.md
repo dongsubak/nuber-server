@@ -43,8 +43,9 @@ Nuber Server - Typescript, GraphQL, PostgreSQL, NodeJS
 - [x] Subscribe to Ride Status
 - [x] Create a Chat Room
 - [x] Get Chat Room Messages
-- [ ] Subscribe to Chat Room Messages
 - [ ] Send a Chat Message
+- [ ] Subscribe to Chat Room Messages
+
 
 ## Code Challenge
 - [ ] Get Ride History
