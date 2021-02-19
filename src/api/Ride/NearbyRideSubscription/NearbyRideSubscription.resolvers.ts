@@ -17,8 +17,9 @@ const resolvers = {
             pickUpLat <= userLastLat + 0.05 &&
             pickUpLng >= userLastLng - 0.05 &&
             pickUpLng <= userLastLng + 0.05 
-          )
-        })
+          );
+        }
+      )
     }
   }
 }
