@@ -17,7 +17,7 @@ type Query {
 }
 
 type Subscription {
-  MessageSubscriptionSubscription: Message
+  MessageSubscription: Message
   NearbyRideSubscription: User
   RideStatusSubscription: Ride
   DriversSubscription: User
